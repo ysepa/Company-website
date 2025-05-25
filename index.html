@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <title>אתר החברה</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    :root {
+      --primary-color: #4caf50;
+      --secondary-color: #333;
+      --accent-color: #f0f0f0;
+      --text-color: #222;
+      --font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      margin: 0;
+      font-family: var(--font-family);
+      background-color: white;
+      color: var(--text-color);
+      transition: all 0.3s ease;
+    }
+
+    header {
+      background: linear-gradient(to right, var(--primary-color), #388e3c);
+      color: white;
+      padding: 30px;
+      text-align: center;
+    }
+
+    nav {
+      background-color: var(--secondary-color);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    nav a {
+      color: white;
+      padding: 15px 20px;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+
+    nav a:hover {
+      background-color: #575757;
+    }
+
+    main {
+      padding: 30px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    section {
+      margin-bottom: 50px;
+      background-color: var(--accent-color);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+      animation: fadeIn 1s ease-in;
+    }
+
+    h1, h2 {
+      color: var(--primary-color);
+    }
+
+    img {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+
+    footer {
+      background-color: var(--secondary-color);
+      color: white;
+      text-align: center;
+      padding: 15px;
+    }
+
+    .accessibility-menu {
+      position: fixed;
+      top: 10px;
+      left: 10px;
+      background-color: white;
+      border: 2px solid var(--primary-color);
+      padding: 10px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+      z-index: 999;
+    }
+
+    .accessibility-menu button {
+      margin: 5px 0;
+      padding: 8px 12px;
+      border: none;
+      background-color: var(--primary-color);
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+      width: 100%;
+      transition: background 0.3s;
+    }
+
+    .accessibility-menu button:hover {
+      background-color: #2e7d32;
+    }
+
+    .large-text {
+      font-size: 1.25em;
+    }
+
+    .high-contrast {
+      background-color: black !important;
+      color: yellow !important;
+    }
+
+    .high-contrast a {
+      color: yellow !important;
+    }
+
+    form input, form textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+    }
+
+    form button {
+      background-color: var(--primary-color);
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    form button:hover {
+      background-color: #2e7d32;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 600px) {
+      nav a {
+        flex: 1 0 100%;
+        text-align: center;
+      }
+
+      .accessibility-menu {
+        left: 10px;
+        right: 10px;
+      }
+    }
+  </style>
+  <script>
+    function toggleLargeText() {
+      document.body.classList.toggle("large-text");
+    }
+
+    function toggleHighContrast() {
+      document.body.classList.toggle("high-contrast");
+    }
+  </script>
+</head>
+<body>
+
+  <div class="accessibility-menu">
+    <strong>תפריט נגישות</strong>
+    <button onclick="toggleLargeText()">הגדל טקסט</button>
+    <button onclick="toggleHighContrast()">ניגודיות גבוהה</button>
+  </div>
+
+  <header>
+    <h1>ברוכים הבאים לחברתנו</h1>
+    <p>השירות שלך – המשימה שלנו</p>
+  </header>
+
+  <nav>
+    <a href="#home">עמוד הבית</a>
+    <a href="#about">אודותינו</a>
+    <a href="#services">שירותי החברה</a>
+    <a href="#contact">צור קשר</a>
+  </nav>
+
+  <main>
+    <section id="home">
+      <h2>עמוד הבית</h2>
+      <img src="https://via.placeholder.com/400x200?text=עמוד+הבית" alt="עמוד הבית" />
+      <p>אנחנו שמחים לראות אותך באתר שלנו. כאן תוכל להכיר אותנו, להבין את השירותים שלנו וליצור איתנו קשר.</p>
+    </section>
+
+    <section id="about">
+      <h2>אודותינו</h2>
+      <img src="https://via.placeholder.com/400x200?text=אודותינו" alt="אודותינו" />
+      <p>אנחנו חברה צעירה ודינמית עם ניסיון רב בשירות לקוחות, פתרונות טכנולוגיים ומענה מותאם אישית לכל לקוח.</p>
+    </section>
+
+    <section id="services">
+      <h2>שירותי החברה</h2>
+      <img src="https://via.placeholder.com/400x200?text=שירותים" alt="שירותים" />
+      <ul>
+        <li>ייעוץ אישי ומקצועי</li>
+        <li>שירותי טכנולוגיה מתקדמים</li>
+        <li>תמיכה מסביב לשעון</li>
+      </ul>
+    </section>
+
+    <section id="contact">
+      <h2>צור קשר</h2>
+      <form>
+        <label>שם מלא:</label><br>
+        <input type="text" name="name" required><br><br>
+
+        <label>אימייל:</label><br>
+        <input type="email" name="email" required><br><br>
+
+        <label>הודעה:</label><br>
+        <textarea name="message" rows="5" required></textarea><br><br>
+
+        <button type="submit">שלח</button>
+      </form>
+
+      <br>
+      <!-- החלף את המספר כאן למס' שלך בפורמט בינלאומי -->
+      <a href="https://wa.me/972501234567" target="_blank" style="text-decoration:none;">
+        <button style="background-color:#25D366; margin-top:10px;">
+          שלח לנו הודעה בוואטסאפ
+        </button>
+      </a>
+    </section>
+  </main>
+
+  <footer>
+    <p>כל הזכויות שמורות © 2025</p>
+  </footer>
+</body>
+  </html><!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <title>אתר החברה</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    :root {
+      --primary-color: #4caf50;
+      --secondary-color: #333;
+      --accent-color: #f0f0f0;
+      --text-color: #222;
+      --font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      margin: 0;
+      font-family: var(--font-family);
+      background-color: white;
+      color: var(--text-color);
+      transition: all 0.3s ease;
+    }
+
+    header {
+      background: linear-gradient(to right, var(--primary-color), #388e3c);
+      color: white;
+      padding: 30px;
+      text-align: center;
+    }
+
+    nav {
+      background-color: var(--secondary-color);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    nav a {
+      color: white;
+      padding: 15px 20px;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+
+    nav a:hover {
+      background-color: #575757;
+    }
+
+    main {
+      padding: 30px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    section {
+      margin-bottom: 50px;
+      background-color: var(--accent-color);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+      animation: fadeIn 1s ease-in;
+    }
+
+    h1, h2 {
+      color: var(--primary-color);
+    }
+
+    img {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+
+    footer {
+      background-color: var(--secondary-color);
+      color: white;
+      text-align: center;
+      padding: 15px;
+    }
+
+    .accessibility-menu {
+      position: fixed;
+      top: 10px;
+      left: 10px;
+      background-color: white;
+      border: 2px solid var(--primary-color);
+      padding: 10px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+      z-index: 999;
+    }
+
+    .accessibility-menu button {
+      margin: 5px 0;
+      padding: 8px 12px;
+      border: none;
+      background-color: var(--primary-color);
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+      width: 100%;
+      transition: background 0.3s;
+    }
+
+    .accessibility-menu button:hover {
+      background-color: #2e7d32;
+    }
+
+    .large-text {
+      font-size: 1.25em;
+    }
+
+    .high-contrast {
+      background-color: black !important;
+      color: yellow !important;
+    }
+
+    .high-contrast a {
+      color: yellow !important;
+    }
+
+    form input, form textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+    }
+
+    form button {
+      background-color: var(--primary-color);
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    form button:hover {
+      background-color: #2e7d32;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 600px) {
+      nav a {
+        flex: 1 0 100%;
+        text-align: center;
+      }
+
+      .accessibility-menu {
+        left: 10px;
+        right: 10px;
+      }
+    }
+  </style>
+  <script>
+    function toggleLargeText() {
+      document.body.classList.toggle("large-text");
+    }
+
+    function toggleHighContrast() {
+      document.body.classList.toggle("high-contrast");
+    }
+  </script>
+</head>
+<body>
+
+  <div class="accessibility-menu">
+    <strong>תפריט נגישות</strong>
+    <button onclick="toggleLargeText()">הגדל טקסט</button>
+    <button onclick="toggleHighContrast()">ניגודיות גבוהה</button>
+  </div>
+
+  <header>
+    <h1>ברוכים הבאים לחברתנו</h1>
+    <p>השירות שלך – המשימה שלנו</p>
+  </header>
+
+  <nav>
+    <a href="#home">עמוד הבית</a>
+    <a href="#about">אודותינו</a>
+    <a href="#services">שירותי החברה</a>
+    <a href="#contact">צור קשר</a>
+  </nav>
+
+  <main>
+    <section id="home">
+      <h2>עמוד הבית</h2>
+      <img src="https://via.placeholder.com/400x200?text=עמוד+הבית" alt="עמוד הבית" />
+      <p>אנחנו שמחים לראות אותך באתר שלנו. כאן תוכל להכיר אותנו, להבין את השירותים שלנו וליצור איתנו קשר.</p>
+    </section>
+
+    <section id="about">
+      <h2>אודותינו</h2>
+      <img src="https://via.placeholder.com/400x200?text=אודותינו" alt="אודותינו" />
+      <p>אנחנו חברה צעירה ודינמית עם ניסיון רב בשירות לקוחות, פתרונות טכנולוגיים ומענה מותאם אישית לכל לקוח.</p>
+    </section>
+
+    <section id="services">
+      <h2>שירותי החברה</h2>
+      <img src="https://via.placeholder.com/400x200?text=שירותים" alt="שירותים" />
+      <ul>
+        <li>ייעוץ אישי ומקצועי</li>
+        <li>שירותי טכנולוגיה מתקדמים</li>
+        <li>תמיכה מסביב לשעון</li>
+      </ul>
+    </section>
+
+    <section id="contact">
+      <h2>צור קשר</h2>
+      <form>
+        <label>שם מלא:</label><br>
+        <input type="text" name="name" required><br><br>
+
+        <label>אימייל:</label><br>
+        <input type="email" name="email" required><br><br>
+
+        <label>הודעה:</label><br>
+        <textarea name="message" rows="5" required></textarea><br><br>
+
+        <button type="submit">שלח</button>
+      </form>
+
+      <br>
+      <!-- החלף את המספר כאן למס' שלך בפורמט בינלאומי -->
+      <a href="https://wa.me/972501234567" target="_blank" style="text-decoration:none;">
+        <button style="background-color:#25D366; margin-top:10px;">
+          שלח לנו הודעה בוואטסאפ
+        </button>
+      </a>
+    </section>
+  </main>
+
+  <footer>
+    <p>כל הזכויות שמורות © 2025</p>
+  </footer>
+</body>
+  </html>
