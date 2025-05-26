@@ -307,18 +307,24 @@
   </div>
 </div>
 
+<div id="welcome-modal" style="display:none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background-color: rgba(0,0,0,0.6); z-index: 2000; justify-content: center; align-items: center;">
+  <div style="background-color: #fff; padding: 2em; border-radius: 10px; max-width: 400px; text-align: center;">
+    <h2>ברוך הבא לאתר שלנו!</h2>
+    <p>אנו שמחים לארח אותך. אל תהסס ליצור קשר לכל שאלה או בקשה.</p>
+    <button onclick="closeWelcomeModal()" style="margin-top: 1em; padding: 0.5em 1em; background-color: #28a745; color: white; border: none; border-radius: 5px;">סגור</button>
+  </div>
+</div>
+
 <script>
   function closeWelcomeModal() {
     document.getElementById('welcome-modal').style.display = 'none';
   }
 
   document.addEventListener("DOMContentLoaded", () => {
-    if (!localStorage.getItem('visited')) {
-      document.getElementById('welcome-modal').style.display = 'flex';
-      localStorage.setItem('visited', 'true');
-    }
+    document.getElementById('welcome-modal').style.display = 'flex';
   });
 </script>
+
 
 </body>
 </html>
