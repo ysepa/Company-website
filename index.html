@@ -38,6 +38,12 @@
       font-size: 1em;
       cursor: pointer;
     }
+    #lang-toggle {
+      padding: 0.4em 0.8em;
+      border: 1px solid #333;
+      border-radius: 5px;
+      background-color: #fff;
+    }
     #accessibility-icon {
       position: fixed;
       bottom: 1em;
@@ -52,6 +58,10 @@
       justify-content: center;
       cursor: pointer;
       z-index: 1000;
+    }
+    #accessibility-icon::before {
+      content: '\267F'; /* Unicode for wheelchair symbol */
+      font-size: 24px;
     }
     #accessibility-toolbar {
       display: none;
@@ -206,15 +216,43 @@
 
     document.addEventListener("DOMContentLoaded", () => {
       let currentLang = 'he';
-      document.getElementById('lang-toggle').addEventListener('click', () => {
-        currentLang = currentLang === 'he' ? 'en' : 'he';
-        setLanguage(currentLang);
-        document.getElementById('lang-toggle').textContent = currentLang === 'he' ? 'EN' : 'HE';
-      });
+      const toggleBtn = document.getElementById('lang-toggle');
+      if (toggleBtn) {
+        toggleBtn.addEventListener('click', () => {
+          currentLang = currentLang === 'he' ? 'en' : 'he';
+          setLanguage(currentLang);
+          toggleBtn.textContent = currentLang === 'he' ? 'EN' : 'HE';
+        });
+      }
     });
   </script>
 </head>
 <body>
-  <!-- (body unchanged) -->
+  <header>
+    <div class="logo">
+      <img src="logo.png" alt="לוגו">
+    </div>
+    <nav>
+      <ul>
+        <li><a href="#" data-i18n="nav-services">השירותים שלנו</a></li>
+        <li><a href="#" data-i18n="nav-about">אודות</a></li>
+        <li><a href="#" data-i18n="nav-contact">צור קשר</a></li>
+        <li><button id="lang-toggle">EN</button></li>
+      </ul>
+    </nav>
+  </header>
+  <!-- תוכן האתר ייכנס כאן -->
+  <div id="accessibility-icon" onclick="toggleToolbar()"></div>
+  <div id="accessibility-toolbar">
+    <button onclick="adjustTextSize(1)">הגדל טקסט</button>
+    <button onclick="adjustTextSize(-1)">הקטן טקסט</button>
+    <button onclick="setGrayscale()">גווני אפור</button>
+    <button onclick="setHighContrast()">ניגודיות גבוהה</button>
+    <button onclick="setInvertContrast()">ניגודיות הפוכה</button>
+    <button onclick="setLightBackground()">רקע בהיר</button>
+    <button onclick="highlightLinks()">הדגש קישורים</button>
+    <button onclick="setReadableFont()">פונט קריא</button>
+    <button onclick="resetAccessibility()">איפוס</button>
+  </div>
 </body>
 </html>
