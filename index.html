@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>דודי שליחויות</title>
+  <title data-i18n="site-title">דודי שליחויות</title>
   <style>
     body {
       margin: 0;
@@ -38,13 +38,36 @@
       font-size: 1em;
       cursor: pointer;
     }
-    #accessibility-toolbar {
+    #accessibility-icon {
+      position: fixed;
+      bottom: 1em;
+      left: 1em;
+      background-color: #fff;
+      border: 2px solid #333;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
       display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 1000;
+    }
+    #accessibility-toolbar {
+      display: none;
       flex-wrap: wrap;
       gap: 0.5em;
       padding: 1em;
       background-color: #eee;
-      justify-content: center;
+      position: fixed;
+      bottom: 70px;
+      left: 1em;
+      z-index: 999;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+    #accessibility-toolbar.show {
+      display: flex;
     }
     #accessibility-toolbar button {
       padding: 0.5em 1em;
@@ -125,11 +148,68 @@
       document.body.style = '';
       fontSize = 100;
     }
-    document.getElementById('lang-toggle').addEventListener('click', () => {
-      const lang = document.documentElement.lang === 'he' ? 'en' : 'he';
+    function toggleToolbar() {
+      document.getElementById('accessibility-toolbar').classList.toggle('show');
+    }
+
+    const translations = {
+      he: {
+        "site-title": "דודי שליחויות",
+        "nav-services": "השירותים שלנו",
+        "nav-about": "אודות",
+        "nav-contact": "צור קשר",
+        "hero-title": "שליחויות מהירות, אמינות ומקצועיות",
+        "hero-desc": "כל סוגי המשלוחים לכל יעד בארץ – העסק שלך בתנועה.",
+        "hero-button": "שלח הודעה בווטסאפ",
+        "services-title": "השירותים שלנו",
+        "service1": "משלוחים עירוניים",
+        "service2": "משלוחים בינעירוניים",
+        "service3": "משלוחי אקספרס",
+        "service4": "משלוחים לעסקים",
+        "service5": "משלוחים מיוחדים",
+        "about-title": "אודות",
+        "about-text": "עם ניסיון של שנים בתחום, דודי שליחויות מציעה שירות מהיר, אישי ומדויק – בהתאמה מלאה לצורכי הלקוח.",
+        "contact-title": "צור קשר",
+        "footer": "דודי שליחויות"
+      },
+      en: {
+        "site-title": "Dudi Deliveries",
+        "nav-services": "Our Services",
+        "nav-about": "About",
+        "nav-contact": "Contact",
+        "hero-title": "Fast, Reliable and Professional Deliveries",
+        "hero-desc": "All types of deliveries to any destination in Israel – your business in motion.",
+        "hero-button": "Send a WhatsApp Message",
+        "services-title": "Our Services",
+        "service1": "City Deliveries",
+        "service2": "Intercity Deliveries",
+        "service3": "Express Delivery",
+        "service4": "Business Deliveries",
+        "service5": "Special Deliveries",
+        "about-title": "About",
+        "about-text": "With years of experience, Dudi Deliveries provides fast, personal, and accurate service tailored to your needs.",
+        "contact-title": "Contact",
+        "footer": "Dudi Deliveries"
+      }
+    };
+
+    function setLanguage(lang) {
       document.documentElement.lang = lang;
       document.documentElement.dir = lang === 'he' ? 'rtl' : 'ltr';
-      // תוכל להחליף טקסטים לפי שפה כאן בהמשך
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (translations[lang][key]) {
+          el.textContent = translations[lang][key];
+        }
+      });
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      let currentLang = 'he';
+      document.getElementById('lang-toggle').addEventListener('click', () => {
+        currentLang = currentLang === 'he' ? 'en' : 'he';
+        setLanguage(currentLang);
+      });
     });
   </script>
 </head>
@@ -140,13 +220,17 @@
     </div>
     <nav>
       <ul>
-        <li><a href="#services">השירותים שלנו</a></li>
-        <li><a href="#about">אודות</a></li>
-        <li><a href="#contact">צור קשר</a></li>
+        <li><a href="#services" data-i18n="nav-services">השירותים שלנו</a></li>
+        <li><a href="#about" data-i18n="nav-about">אודות</a></li>
+        <li><a href="#contact" data-i18n="nav-contact">צור קשר</a></li>
         <li><button id="lang-toggle">EN</button></li>
       </ul>
     </nav>
   </header>
+
+  <div id="accessibility-icon" onclick="toggleToolbar()">
+    <img src="wheelchair-icon.png" alt="נגישות" width="24" height="24">
+  </div>
 
   <div id="accessibility-toolbar">
     <button onclick="adjustTextSize(1)">הגדל טקסט</button>
@@ -162,29 +246,29 @@
 
   <main>
     <section class="hero">
-      <h1>שליחויות מהירות, אמינות ומקצועיות</h1>
-      <p>כל סוגי המשלוחים לכל יעד בארץ – העסק שלך בתנועה.</p>
-      <a class="cta-button" href="https://wa.me/123456789">שלח הודעה בווטסאפ</a>
+      <h1 data-i18n="hero-title">שליחויות מהירות, אמינות ומקצועיות</h1>
+      <p data-i18n="hero-desc">כל סוגי המשלוחים לכל יעד בארץ – העסק שלך בתנועה.</p>
+      <a class="cta-button" href="https://wa.me/123456789" data-i18n="hero-button">שלח הודעה בווטסאפ</a>
     </section>
 
     <section id="services">
-      <h2>השירותים שלנו</h2>
+      <h2 data-i18n="services-title">השירותים שלנו</h2>
       <ul class="services-list">
-        <li>משלוחים עירוניים</li>
-        <li>משלוחים בינעירוניים</li>
-        <li>משלוחי אקספרס</li>
-        <li>משלוחים לעסקים</li>
-        <li>משלוחים מיוחדים</li>
+        <li data-i18n="service1">משלוחים עירוניים</li>
+        <li data-i18n="service2">משלוחים בינעירוניים</li>
+        <li data-i18n="service3">משלוחי אקספרס</li>
+        <li data-i18n="service4">משלוחים לעסקים</li>
+        <li data-i18n="service5">משלוחים מיוחדים</li>
       </ul>
     </section>
 
     <section id="about">
-      <h2>אודות</h2>
-      <p>עם ניסיון של שנים בתחום, דודי שליחויות מציעה שירות מהיר, אישי ומדויק – בהתאמה מלאה לצורכי הלקוח.</p>
+      <h2 data-i18n="about-title">אודות</h2>
+      <p data-i18n="about-text">עם ניסיון של שנים בתחום, דודי שליחויות מציעה שירות מהיר, אישי ומדויק – בהתאמה מלאה לצורכי הלקוח.</p>
     </section>
 
     <section id="contact">
-      <h2>צור קשר</h2>
+      <h2 data-i18n="contact-title">צור קשר</h2>
       <p>טלפון: <a href="tel:0501234567">050-1234567</a></p>
       <p>מייל: <a href="mailto:dudi@delivery.co.il">dudi@delivery.co.il</a></p>
       <p><a href="https://wa.me/123456789">WhatsApp</a></p>
@@ -192,7 +276,7 @@
   </main>
 
   <footer>
-    <p>&copy; 2025 דודי שליחויות</p>
+    <p>&copy; 2025 <span data-i18n="footer">דודי שליחויות</span></p>
   </footer>
 </body>
 </html>
