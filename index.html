@@ -60,7 +60,7 @@
       z-index: 1000;
     }
     #accessibility-icon::before {
-      content: '\267F'; /* Unicode for wheelchair symbol */
+      content: '\267F';
       font-size: 24px;
     }
     #accessibility-toolbar {
@@ -108,11 +108,21 @@
     section {
       padding: 2em;
     }
-    .services-list {
-      list-style: none;
-      padding: 0;
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5em;
+      margin-top: 1em;
     }
-    .services-list li {
+    .service-box {
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      padding: 1.5em;
+      text-align: center;
+      background-color: #f9f9f9;
+    }
+    .service-icon {
+      font-size: 40px;
       margin-bottom: 0.5em;
     }
     footer {
@@ -178,11 +188,6 @@
         "hero-desc": "כל סוגי המשלוחים לכל יעד בארץ – העסק שלך בתנועה.",
         "hero-button": "שלח הודעה בווטסאפ",
         "services-title": "השירותים שלנו",
-        "service1": "משלוחים עירוניים",
-        "service2": "משלוחים בינעירוניים",
-        "service3": "משלוחי אקספרס",
-        "service4": "משלוחים לעסקים",
-        "service5": "משלוחים מיוחדים",
         "about-title": "אודות",
         "about-text": "עם ניסיון של שנים בתחום, דודי שליחויות מציעה שירות מהיר, אישי ומדויק – בהתאמה מלאה לצורכי הלקוח.",
         "contact-title": "צור קשר",
@@ -197,11 +202,6 @@
         "hero-desc": "All types of deliveries to any destination in Israel – your business in motion.",
         "hero-button": "Send a WhatsApp Message",
         "services-title": "Our Services",
-        "service1": "City Deliveries",
-        "service2": "Intercity Deliveries",
-        "service3": "Express Delivery",
-        "service4": "Business Deliveries",
-        "service5": "Special Deliveries",
         "about-title": "About",
         "about-text": "With years of experience, Dudi Deliveries provides fast, personal, and accurate service tailored to your needs.",
         "contact-title": "Contact",
@@ -255,13 +255,23 @@
     </section>
     <section id="services">
       <h2 data-i18n="services-title">השירותים שלנו</h2>
-      <ul class="services-list">
-        <li data-i18n="service1">משלוחים עירוניים</li>
-        <li data-i18n="service2">משלוחים בינעירוניים</li>
-        <li data-i18n="service3">משלוחי אקספרס</li>
-        <li data-i18n="service4">משלוחים לעסקים</li>
-        <li data-i18n="service5">משלוחים מיוחדים</li>
-      </ul>
+      <div class="services-grid">
+        <div class="service-box">
+          <div class="service-icon">⚡</div>
+          <h3>משלוחי אקספרס</h3>
+          <p>שירותי שליחות מהירים במיוחד לכל חלקי הארץ.</p>
+        </div>
+        <div class="service-box">
+          <div class="service-icon">🤝</div>
+          <h3>משלוחים לעסקים</h3>
+          <p>שירות אמין לעסקים – פתרונות קבועים או חד פעמיים.</p>
+        </div>
+        <div class="service-box">
+          <div class="service-icon">🚚</div>
+          <h3>שליחויות בפריסה ארצית</h3>
+          <p>משלוחים מהצפון ועד הדרום עם שליחים מקצועיים.</p>
+        </div>
+      </div>
     </section>
     <section id="about">
       <h2 data-i18n="about-title">אודות</h2>
@@ -288,6 +298,27 @@
     <button onclick="highlightLinks()">הדגש קישורים</button>
     <button onclick="setReadableFont()">פונט קריא</button>
     <button onclick="resetAccessibility()">איפוס</button>
+</div>
+<div id="welcome-modal" style="display:none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background-color: rgba(0,0,0,0.6); z-index: 2000; justify-content: center; align-items: center;">
+  <div style="background-color: #fff; padding: 2em; border-radius: 10px; max-width: 400px; text-align: center;">
+    <h2>ברוך הבא לאתר שלנו!</h2>
+    <p>אנו שמחים לארח אותך. אל תהסס ליצור קשר לכל שאלה או בקשה.</p>
+    <button onclick="closeWelcomeModal()" style="margin-top: 1em; padding: 0.5em 1em; background-color: #28a745; color: white; border: none; border-radius: 5px;">סגור</button>
   </div>
+</div>
+
+<script>
+  function closeWelcomeModal() {
+    document.getElementById('welcome-modal').style.display = 'none';
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    if (!localStorage.getItem('visited')) {
+      document.getElementById('welcome-modal').style.display = 'flex';
+      localStorage.setItem('visited', 'true');
+    }
+  });
+</script>
+
 </body>
 </html>
