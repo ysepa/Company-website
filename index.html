@@ -90,6 +90,12 @@
       text-align: center;
       animation: fadeIn 1s ease-in-out;
     }
+    .hero h1 {
+      margin: 0;
+    }
+    .hero p {
+      margin: 0.5em 0;
+    }
     .cta-button {
       display: inline-block;
       margin-top: 1em;
@@ -230,18 +236,47 @@
 <body>
   <header>
     <div class="logo">
-      <img src="logo.jpg" alt="לוגו">
+      <img src="logo.png" alt="לוגו">
     </div>
     <nav>
       <ul>
-        <li><a href="#" data-i18n="nav-services">השירותים שלנו</a></li>
-        <li><a href="#" data-i18n="nav-about">אודות</a></li>
-        <li><a href="#" data-i18n="nav-contact">צור קשר</a></li>
+        <li><a href="#services" data-i18n="nav-services">השירותים שלנו</a></li>
+        <li><a href="#about" data-i18n="nav-about">אודות</a></li>
+        <li><a href="#contact" data-i18n="nav-contact">צור קשר</a></li>
         <li><button id="lang-toggle">EN</button></li>
       </ul>
     </nav>
   </header>
-  <!-- תוכן האתר ייכנס כאן -->
+  <main>
+    <section class="hero">
+      <h1 data-i18n="hero-title">שליחויות מהירות, אמינות ומקצועיות</h1>
+      <p data-i18n="hero-desc">כל סוגי המשלוחים לכל יעד בארץ – העסק שלך בתנועה.</p>
+      <a class="cta-button" href="https://wa.me/972501234567" target="_blank" data-i18n="hero-button">שלח הודעה בווטסאפ</a>
+    </section>
+    <section id="services">
+      <h2 data-i18n="services-title">השירותים שלנו</h2>
+      <ul class="services-list">
+        <li data-i18n="service1">משלוחים עירוניים</li>
+        <li data-i18n="service2">משלוחים בינעירוניים</li>
+        <li data-i18n="service3">משלוחי אקספרס</li>
+        <li data-i18n="service4">משלוחים לעסקים</li>
+        <li data-i18n="service5">משלוחים מיוחדים</li>
+      </ul>
+    </section>
+    <section id="about">
+      <h2 data-i18n="about-title">אודות</h2>
+      <p data-i18n="about-text">עם ניסיון של שנים בתחום, דודי שליחויות מציעה שירות מהיר, אישי ומדויק – בהתאמה מלאה לצורכי הלקוח.</p>
+    </section>
+    <section id="contact">
+      <h2 data-i18n="contact-title">צור קשר</h2>
+      <p>📞 050-1234567</p>
+      <p>📧 dudi@example.com</p>
+      <p>📍 תל אביב, ישראל</p>
+    </section>
+  </main>
+  <footer>
+    <p data-i18n="footer">דודי שליחויות</p>
+  </footer>
   <div id="accessibility-icon" onclick="toggleToolbar()"></div>
   <div id="accessibility-toolbar">
     <button onclick="adjustTextSize(1)">הגדל טקסט</button>
