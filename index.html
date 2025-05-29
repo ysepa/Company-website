@@ -315,9 +315,13 @@
   }
 
   document.addEventListener("DOMContentLoaded", () => {
-    document.getElementById('welcome-modal').style.display = 'flex';
+    if (!localStorage.getItem('visited')) {
+      document.getElementById('welcome-modal').style.display = 'flex';
+      localStorage.setItem('visited', 'true');
+    }
   });
 </script>
+
 
 
 </body>
