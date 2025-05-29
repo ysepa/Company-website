@@ -180,7 +180,7 @@
 
     const translations = {
       he: {
-        "site-title": "דודי שליחויות",
+        "site-title": "בדרך שלך שליחויות",
         "nav-services": "השירותים שלנו",
         "nav-about": "אודות",
         "nav-contact": "צור קשר",
@@ -191,10 +191,10 @@
         "about-title": "אודות",
         "about-text": "עם ניסיון של שנים בתחום, דודי שליחויות מציעה שירות מהיר, אישי ומדויק – בהתאמה מלאה לצורכי הלקוח.",
         "contact-title": "צור קשר",
-        "footer": "דודי שליחויות"
+        "footer": "בדרך שלך"
       },
       en: {
-        "site-title": "Dudi Deliveries",
+        "site-title": "baderch selcha Deliveries",
         "nav-services": "Our Services",
         "nav-about": "About",
         "nav-contact": "Contact",
@@ -205,7 +205,7 @@
         "about-title": "About",
         "about-text": "With years of experience, Dudi Deliveries provides fast, personal, and accurate service tailored to your needs.",
         "contact-title": "Contact",
-        "footer": "Dudi Deliveries"
+        "footer": "baderch selcha Deliveries"
       }
     };
 
@@ -275,17 +275,18 @@
     </section>
     <section id="about">
       <h2 data-i18n="about-title">אודות</h2>
-      <p data-i18n="about-text">עם ניסיון של שנים בתחום, דודי שליחויות מציעה שירות מהיר, אישי ומדויק – בהתאמה מלאה לצורכי הלקוח.</p>
+      <p data-i18n="about-text">עם ניסיון של שנים בתחום, בדרך שלך שליחויות מציעה שירות מהיר, אישי ומדויק – בהתאמה מלאה לצורכי הלקוח.</p>
     </section>
     <section id="contact">
       <h2 data-i18n="contact-title">צור קשר</h2>
-      <p>📞 050-1234567</p>
-      <p>📧 dudi@example.com</p>
-      <p>📍 תל אביב, ישראל</p>
+      <p>📞 050-4657817</p>
+      <p>📧 baderecheleicha.gmail.com</p>
+      <p>📍 ישראל</p>
     </section>
   </main>
   <footer>
-    <p data-i18n="footer">דודי שליחויות</p>
+     <img src="logo.png" alt="לוגו">
+    <p data-i18n="footer"> בדרך שלך שליחויות</p>
   </footer>
   <div id="accessibility-icon" onclick="toggleToolbar()"></div>
   <div id="accessibility-toolbar">
@@ -299,7 +300,7 @@
     <button onclick="setReadableFont()">פונט קריא</button>
     <button onclick="resetAccessibility()">איפוס</button>
 </div>
-<div id="welcome-modal" style="display:none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background-color: rgba(0,0,0,0.6); z-index: 2000; justify-content: center; align-items: center;">
+  <div id="welcome-modal" style="display:none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background-color: rgba(0,0,0,0.6); z-index: 2000; justify-content: center; align-items: center;">
   <div style="background-color: #fff; padding: 2em; border-radius: 10px; max-width: 400px; text-align: center;">
     <h2>ברוך הבא לאתר שלנו!</h2>
     <p>אנו שמחים לארח אותך. אל תהסס ליצור קשר לכל שאלה או בקשה.</p>
@@ -307,12 +308,20 @@
   </div>
 </div>
 
-<div id="welcome-modal" style="display:none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background-color: rgba(0,0,0,0.6); z-index: 2000; justify-content: center; align-items: center;">
-  <div style="background-color: #fff; padding: 2em; border-radius: 10px; max-width: 400px; text-align: center;">
-    <h2>ברוך הבא לאתר שלנו!</h2>
-    <p>אנו שמחים לארח אותך. אל תהסס ליצור קשר לכל שאלה או בקשה.</p>
-    <button onclick="closeWelcomeModal()" style="margin-top: 1em; padding: 0.5em 1em; background-color: #28a745; color: white; border: none; border-radius: 5px;">סגור</button>
-  </div>
+<script>
+  function closeWelcomeModal() {
+    document.getElementById('welcome-modal').style.display = 'none';
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    if (!localStorage.getItem('visited')) {
+      document.getElementById('welcome-modal').style.display = 'flex';
+      localStorage.setItem('visited', 'true');
+    }
+  });
+</script>
+
+
 </div>
 
 <script>
