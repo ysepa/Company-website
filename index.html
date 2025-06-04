@@ -278,19 +278,22 @@
 <div id="email-form" style="max-width: 500px; margin: 2em auto; padding: 2em; background-color: #f9f9f9; border-radius: 10px;">
  <h2 data-i18n="contact-title">צור קשר</h2>
       <p>📞 050-4657817</p>
-  <h3>שלח לנו מייל</h3>
-  <form id="mailForm" onsubmit="sendMail(event)">
-    <label for="name">שם:</label><br />
-    <input type="text" id="name" name="name" required style="width: 100%; padding: 0.5em; margin-bottom: 1em;" /><br />
-
-    <label for="email">אימייל:</label><br />
-    <input type="email" id="email" name="email" required style="width: 100%; padding: 0.5em; margin-bottom: 1em;" /><br />
-
-    <label for="message">הודעה:</label><br />
-    <textarea id="message" name="message" rows="5" required style="width: 100%; padding: 0.5em; margin-bottom: 1em;"></textarea><br />
-
-    <button type="submit" style="padding: 0.7em 1.5em; background-color: #28a745; color: white; border: none; border-radius: 5px;">שלח</button>
+ <section id="email-form" style="padding: 2em; background-color: #f9f9f9; text-align: center;">
+  <h2 style="margin-bottom: 1em;">שלחו לנו מייל</h2>
+  <form action="mailto:baderecheleicha.gmail.com" method="POST" enctype="text/plain" style="max-width: 500px; margin: auto;">
+    <input type="text" name="name" placeholder="השם שלך" required
+           style="width: 100%; padding: 0.8em; margin-bottom: 1em; border: 1px solid #ccc; border-radius: 5px;"><br>
+    <input type="email" name="email" placeholder="האימייל שלך" required
+           style="width: 100%; padding: 0.8em; margin-bottom: 1em; border: 1px solid #ccc; border-radius: 5px;"><br>
+    <textarea name="message" placeholder="ההודעה שלך" required rows="5"
+              style="width: 100%; padding: 0.8em; margin-bottom: 1em; border: 1px solid #ccc; border-radius: 5px;"></textarea><br>
+    <button type="submit"
+            style="background-color: #28a745; color: white; padding: 0.8em 1.5em; border: none; border-radius: 5px; cursor: pointer;">
+      שלח מייל
+    </button>
   </form>
+</section>
+
 <p>📧 baderecheleicha.gmail.com</p>
       <p>📍 ישראל</p>
 </div>
