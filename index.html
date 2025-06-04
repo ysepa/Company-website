@@ -276,6 +276,36 @@
     <section id="contact">
       <h2 data-i18n="contact-title">צור קשר</h2>
       <p>📞 050-4657817</p>
+<div id="email-form" style="max-width: 500px; margin: 2em auto; padding: 2em; background-color: #f9f9f9; border-radius: 10px;">
+  <h3>שלח לנו מייל</h3>
+  <form id="mailForm" onsubmit="sendMail(event)">
+    <label for="name">שם:</label><br />
+    <input type="text" id="name" name="name" required style="width: 100%; padding: 0.5em; margin-bottom: 1em;" /><br />
+
+    <label for="email">אימייל:</label><br />
+    <input type="email" id="email" name="email" required style="width: 100%; padding: 0.5em; margin-bottom: 1em;" /><br />
+
+    <label for="message">הודעה:</label><br />
+    <textarea id="message" name="message" rows="5" required style="width: 100%; padding: 0.5em; margin-bottom: 1em;"></textarea><br />
+
+    <button type="submit" style="padding: 0.7em 1.5em; background-color: #28a745; color: white; border: none; border-radius: 5px;">שלח</button>
+  </form>
+</div>
+
+<script>
+  function sendMail(event) {
+    event.preventDefault();
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const message = document.getElementById('message').value.trim();
+    
+    const subject = encodeURIComponent("פנייה מהאתר מאת: " + name);
+    const body = encodeURIComponent("שם: " + name + "\nאימייל: " + email + "\n\nהודעה:\n" + message);
+    
+    window.location.href = `baderecheleicha.gmail.com?subject=${subject}&body=${body}`;
+  }
+</script>
+
       <p>📧 baderecheleicha.gmail.com</p>
       <p>📍 ישראל</p>
     </section>
