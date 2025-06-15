@@ -297,7 +297,7 @@
   document.getElementById('contact-form').addEventListener('submit', function(e) {
     e.preventDefault();
 
-    emailjs.sendForm('service_smtg7cl', '__ejs-test-mail-service__', this)
+    emailjs.sendForm('service_smtg7cl', 'template_qk6d0bu', this)
       .then(() => {
         alert('ההודעה נשלחה בהצלחה!');
       }, (error) => {
