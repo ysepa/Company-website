@@ -7,7 +7,7 @@
   <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 <script>
   (function(){
-    emailjs.init("4Z2E5vsgtylwm9J5I"); 
+    emailjs.init(`4Z2E5vsgtylwm9J5I`); 
   })();
 </script>
 
@@ -310,7 +310,7 @@
     e.preventDefault();
     status.textContent = "שולח...";
     
-    emailjs.sendForm("service_smtg7cl", "template_imuljlf", this)
+    emailjs.sendForm(service_smtg7cl, template_imuljlf, this)
       .then(() => {
         status.textContent = "המייל נשלח בהצלחה!";
         form.reset();
