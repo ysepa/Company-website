@@ -297,7 +297,7 @@
 
     document.getElementById("contact-form").addEventListener("submit", function(event) {
       event.preventDefault();
-      emailjs.sendForm("service_69azh43", "template_g8yqqps", this)
+      emailjs.sendForm("service_69azh43", "template_m5xtuva", this)
         .then(function() {
           document.getElementById("form-status").textContent = "ההודעה נשלחה בהצלחה!";
         }, function(error) {
@@ -310,27 +310,7 @@
       <p>📍 ישראל</p>
 </div>
 
-<script>
- document.addEventListener("DOMContentLoaded", function () {
-  const form = document.getElementById("contact-form");
-  const status = document.getElementById("form-status");
 
-  form.addEventListener("submit", function (e) {
-    e.preventDefault();
-    status.textContent = "שולח...";
-    
-    emailjs.sendForm("service_smtg7cl", "__ejs-test-mail-service__", this)
-      .then(() => {
-        status.textContent = "המייל נשלח בהצלחה!";
-        form.reset();
-      }, (err) => {
-        status.textContent = "אירעה שגיאה. נסה שוב.";
-        console.error(err);
-      });
-  });
-});
-
-</script>
 
       
     </section>
