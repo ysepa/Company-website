@@ -5,11 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title data-i18n="site-title">בדרך אליך שליחויות</title>
   <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
-<script>
-  (function(){
-    emailjs.init("Bn_GOlCUbE70HgedU"); 
-  })();
-</script>
+
 
   <style>
     body {
@@ -285,16 +281,31 @@
 <div id="email-form" style="max-width: 500px; margin: 2em auto; padding: 2em; background-color: #f9f9f9; border-radius: 10px;">
  <h2 data-i18n="contact-title">צור קשר</h2>
       <p>📞 <a href="tel:+972504657817">0504657817</a> </p>
-<section id="email-form">
-  <h2>שלחו לנו מייל ישירות</h2>
-  <form id="contact-form">
-    <input type="text" name="user_name" placeholder="שם מלא" required><br>
-    <input type="email" name="user_email" placeholder="האימייל שלך" required><br>
-    <textarea name="message" placeholder="ההודעה שלך" required></textarea><br>
-    <button type="submit">שלח מייל</button>
-  </form>
-  <p id="form-status"></p>
-</section>
+<form id="contact-form">
+  <input type="text" name="from_name" placeholder="השם שלך" required>
+  <input type="email" name="reply_to" placeholder="האימייל שלך" required>
+  <textarea name="message" placeholder="ההודעה שלך" required></textarea>
+  <button type="submit">שלח</button>
+</form>
+
+<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<script>
+  (function(){
+    emailjs.init("Bn_GOlCUbE70HgedU"); // ← שנה ל-public key שלך
+  })();
+
+  document.getElementById('contact-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    emailjs.sendForm('service_smtg7cl', '__ejs-test-mail-service__', this)
+      .then(() => {
+        alert('ההודעה נשלחה בהצלחה!');
+      }, (error) => {
+        console.error('שגיאה בשליחה:', error);
+        alert('אירעה שגיאה בשליחת ההודעה.');
+      });
+  });
+</script>
 
 
 <p>📧 <email>baderecheleicha.gmail.com</email> </p>
