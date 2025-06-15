@@ -4,6 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title data-i18n="site-title">בדרך אליך שליחויות</title>
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+<script>
+  (function(){
+    emailjs.init("4Z2E5vsgtylwm9J5I"); 
+  })();
+</script>
+
   <style>
     body {
       margin: 0;
@@ -278,38 +285,42 @@
 <div id="email-form" style="max-width: 500px; margin: 2em auto; padding: 2em; background-color: #f9f9f9; border-radius: 10px;">
  <h2 data-i18n="contact-title">צור קשר</h2>
       <p>📞 050-4657817</p>
- <section id="email-form" style="padding: 2em; background-color: #f9f9f9; text-align: center;">
-  <h2 style="margin-bottom: 1em;">שלחו לנו מייל</h2>
-  <form action="mailto:baderecheleicha.gmail.com" method="POST" enctype="text/plain" style="max-width: 500px; margin: auto;">
-    <input type="text" name="name" placeholder="השם שלך" required
-           style="width: 100%; padding: 0.8em; margin-bottom: 1em; border: 1px solid #ccc; border-radius: 5px;"><br>
-    <input type="email" name="email" placeholder="האימייל שלך" required
-           style="width: 100%; padding: 0.8em; margin-bottom: 1em; border: 1px solid #ccc; border-radius: 5px;"><br>
-    <textarea name="message" placeholder="ההודעה שלך" required rows="5"
-              style="width: 100%; padding: 0.8em; margin-bottom: 1em; border: 1px solid #ccc; border-radius: 5px;"></textarea><br>
-    <button type="submit"
-            style="background-color: #28a745; color: white; padding: 0.8em 1.5em; border: none; border-radius: 5px; cursor: pointer;">
-      שלח מייל
-    </button>
+<section id="email-form">
+  <h2>שלחו לנו מייל ישירות</h2>
+  <form id="contact-form">
+    <input type="text" name="user_name" placeholder="שם מלא" required><br>
+    <input type="email" name="user_email" placeholder="האימייל שלך" required><br>
+    <textarea name="message" placeholder="ההודעה שלך" required></textarea><br>
+    <button type="submit">שלח מייל</button>
   </form>
+  <p id="form-status"></p>
 </section>
+
 
 <p>📧 baderecheleicha.gmail.com</p>
       <p>📍 ישראל</p>
 </div>
 
 <script>
-  function sendMail(event) {
-    event.preventDefault();
-    const name = document.getElementById('name').value.trim();
-    const email = document.getElementById('email').value.trim();
-    const message = document.getElementById('message').value.trim();
+ document.addEventListener("DOMContentLoaded", function () {
+  const form = document.getElementById("contact-form");
+  const status = document.getElementById("form-status");
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    status.textContent = "שולח...";
     
-    const subject = encodeURIComponent("פנייה מהאתר מאת: " + name);
-    const body = encodeURIComponent("שם: " + name + "\nאימייל: " + email + "\n\nהודעה:\n" + message);
-    
-    window.location.href = `mailto:baderecheleicha.gmail.com?subject=${subject}&body=${body}`;
-  }
+    emailjs.sendForm("service_smtg7cl", "template_imuljlf", this)
+      .then(() => {
+        status.textContent = "המייל נשלח בהצלחה!";
+        form.reset();
+      }, (err) => {
+        status.textContent = "אירעה שגיאה. נסה שוב.";
+        console.error(err);
+      });
+  });
+});
+
 </script>
 
       
