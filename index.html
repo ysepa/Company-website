@@ -277,36 +277,34 @@
       <p data-i18n="about-text">עם ניסיון של שנים בתחום, בדרך שלך שליחויות מציעה שירות מהיר, אישי ומדויק – בהתאמה מלאה לצורכי הלקוח.</p>
     </section>
     <section id="contact">
-     
+ <main>
+        <section class="hero">
 <div id="email-form" style="max-width: 500px; margin: 2em auto; padding: 2em; background-color: #f9f9f9; border-radius: 10px;">
  <h2 data-i18n="contact-title">צור קשר</h2>
       <p>📞 <a href="tel:+972504657817">0504657817</a> </p>
-<form id="contact-form">
-  <input type="text" name="from_name" placeholder="השם שלך" required>
-  <input type="email" name="reply_to" placeholder="האימייל שלך" required>
-  <textarea name="message" placeholder="ההודעה שלך" required></textarea>
-  <button type="submit">שלח</button>
-</form>
-
+  <form id="contact-form">
+        <input type="text" name="user_name" placeholder="שם מלא" required />
+        <input type="email" name="user_email" placeholder="האימייל שלך" required />
+        <textarea name="message" placeholder="ההודעה שלך" required></textarea>
+        <button type="submit">שלח הודעה</button>
+      </form>
+   <p id="form-status"></p>
+    </section>
+       </main>
 <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
-<script>
-  (function(){
-    emailjs.init("Bn_GOlCUbE70HgedU"); // ← שנה ל-public key שלך
-  })();
+ <script>
+    emailjs.init("Bn_GOlCUbE70HgedU"); // שנה ל-public key שלך
 
-  document.getElementById('contact-form').addEventListener('submit', function(e) {
-    e.preventDefault();
-
-    emailjs.sendForm('service_69azh43', 'template_vsfsykr', this)
-      .then(() => {
-        alert('ההודעה נשלחה בהצלחה!');
-      }, (error) => {
-        console.error('שגיאה בשליחה:', error);
-        alert('אירעה שגיאה בשליחת ההודעה.');
-      });
-  });
-</script>
-
+    document.getElementById("contact-form").addEventListener("submit", function(event) {
+      event.preventDefault();
+      emailjs.sendForm("service_69azh43", "template_vsfsykr", this)
+        .then(function() {
+          document.getElementById("form-status").textContent = "ההודעה נשלחה בהצלחה!";
+        }, function(error) {
+          document.getElementById("form-status").textContent = "אירעה שגיאה בשליחה: " + error.text;
+        });
+    });
+  </script>
 
 <p>📧 <email>baderecheleicha.gmail.com</email> </p>
       <p>📍 ישראל</p>
