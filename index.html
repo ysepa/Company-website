@@ -229,6 +229,21 @@
    })();
 </script>
 
+  שליחת הטופס של EmailJS
+  <script>
+document.getElementById("contact-form").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    emailjs.sendForm("service_h151r4q", "template_dnz305h", this)
+        .then(() => {
+            alert("ההודעה נשלחה בהצלחה!");
+        }, (error) => {
+            alert("שגיאה בשליחה: " + JSON.stringify(error));
+        });
+});
+</script>
+
+
   <!-- כפתור וואטסאפ צף במובייל -->
 <a href="https://wa.me/972523152941" class="floating-whatsapp" target="_blank"
 title="שלח הודעה בוואטסאפ" aria-label="שלח הודעת וואטסאפ">
