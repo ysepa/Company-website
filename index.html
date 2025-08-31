@@ -108,13 +108,13 @@
 
     <div class="contact-form" id="contact">
       <h2>צור קשר</h2>
-      <form id="contactForm" novalidate>
-        <div class="form-status" id="formStatus"></div>
-        <input type="text" name="name" placeholder="שם מלא" required autocomplete="name">
-        <input type="email" name="email" placeholder="אימייל" required autocomplete="email">
-        <textarea rows="5" name="message" placeholder="ההודעה שלך..." required></textarea>
-        <button type="submit">שלח הודעה</button>
-      </form>
+    <form id="contact-form">
+  <input type="text" name="user_name" placeholder="השם שלך" required>
+  <input type="email" name="user_email" placeholder="האימייל שלך" required>
+  <textarea name="message" placeholder="ההודעה שלך"></textarea>
+  <button type="submit">שלח</button>
+</form>
+
     </div>
   </section>
 
@@ -220,6 +220,15 @@
   }
   aboutAccordionInit();
   </script>
+  
+  חתקנת סיפריה EmailJS
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+<script type="text/javascript">
+   (function(){
+      emailjs.init("YOUR_PUBLIC_KEY"); // מכניס כאן את המפתח שלך
+   })();
+</script>
+
   <!-- כפתור וואטסאפ צף במובייל -->
 <a href="https://wa.me/972523152941" class="floating-whatsapp" target="_blank"
 title="שלח הודעה בוואטסאפ" aria-label="שלח הודעת וואטסאפ">
