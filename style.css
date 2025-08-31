@@ -33,7 +33,7 @@ body {
   min-height: 420px;
   background-image:
     linear-gradient(rgba(24, 28, 39, 0.88), rgba(24, 28, 39, 0.6)),
-    url('./images/hero.png'); /* ודא שהתמונה בשם הזה */
+    url('hero.png'); /* ודא שהתמונה בשם הזה */
   background-size: cover;
   background-position: center;
   color: #fff;
