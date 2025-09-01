@@ -27,6 +27,13 @@
         "availableLanguage": "Hebrew"
       }
     }
+   const hamburger = document.querySelector('.hamburger');
+if (hamburger) {
+  hamburger.addEventListener('click', () => {
+    document.getElementById('main-nav').classList.toggle('open');
+  });
+}
+
   </script>
   <link rel="stylesheet" href="style.css">
   <script src="script.js" defer></script>
