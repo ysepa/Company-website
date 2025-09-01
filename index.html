@@ -138,25 +138,29 @@
   </footer>
  
  <script>
-document.addEventListener("DOMContentLoaded", () => {
+
   const hamburger = document.querySelector(".hamburger");
-  if (hamburger) {
+  
     hamburger.addEventListener("click", () => {
-      document.getElementById("main-nav").classList.toggle("open");
-    });
-  }
+     
+   
 });
 </script>
 
 
   <script>
   // Navbar hamburger toggle
-  // const hamburger = document.querySelector('.hamburger');
-  // const nav = document.getElementById('main-nav');
-  // hamburger.addEventListener('click', function() {
-  //   nav.classList.toggle('open');
-  //   this.setAttribute('aria-expanded', nav.classList.contains('open'));
-  // });
+   document.addEventListener("DOMContentLoaded", () => {
+  const hamburger = document.querySelector('.hamburger');
+  const nav = document.getElementById('main-nav');
+    if (hamburger) {
+  hamburger.addEventListener('click', function() {
+    document.getElementById("main-nav").classList.toggle("open");
+    // nav.classList.toggle('open');
+    this.setAttribute('aria-expanded', nav.classList.contains('open'));
+  }
+  });
+  });
   // Close nav on link click (mobile)
   document.querySelectorAll('.nav-link').forEach(link => {
     link.addEventListener('click', () => {
