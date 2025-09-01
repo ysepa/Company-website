@@ -140,34 +140,31 @@
 
 
 
-  <script>
-// Navbar hamburger toggle
-   const hamburger = document.querySelector('.hamburger'); 
+  <script> 
+   // Navbar hamburger toggle
+   const hamburger = document.querySelector('.hamburger');
    const nav = document.getElementById('main-nav'); 
    hamburger.addEventListener('click', function() { 
-    nav.classList.toggle('open');
-    this.setAttribute('aria-expanded', nav.classList.contains('open')); 
+    nav.classList.toggle('open'); 
+    this.setAttribute('aria-expanded', nav.classList.contains('open'));
    });
-   
-  // Close nav on link click (mobile)
-  document.querySelectorAll('.nav-link').forEach(link => {
-    link.addEventListener('click', () => {
-      nav.classList.remove('open');
-      hamburger.setAttribute('aria-expanded', 'false');
+   // Close nav on link click (mobile) 
+   document.querySelectorAll('.nav-link').forEach(link => { 
+    link.addEventListener('click', () => { 
+     nav.classList.remove('open'); 
+     hamburger.setAttribute('aria-expanded', 'false');
     });
-  });
-  // Highlight active link on scroll
-  const sections = ['hero','about','services','contact'];
-  window.addEventListener('scroll', () => {
-    let scrollPos = window.scrollY + 120;
-    for (let id of sections) {
-      const sec = document.getElementById(id);
-      if (sec && sec.offsetTop <= scrollPos && sec.offsetTop + sec.offsetHeight > scrollPos) {
-        document.querySelectorAll('.nav-link').forEach(a => a.classList.remove('active'));
-        document.querySelector('.nav-link[href="#'+id+'"]').classList.add('active');
-      }
-    }
-  });
+   }); 
+   // Highlight active link on scroll
+   const sections = ['hero','about','services','contact']; window.addEventListener('scroll', () => {
+    let scrollPos = window.scrollY + 120; for (let id of sections) { 
+     const sec = document.getElementById(id);
+     if (sec && sec.offsetTop <= scrollPos && sec.offsetTop + sec.offsetHeight > scrollPos) { 
+      document.querySelectorAll('.nav-link').forEach(a => a.classList.remove('active'));
+      document.querySelector('.nav-link[href="#'+id+'"]').classList.add('active'); 
+     } 
+    } 
+   }); 
   </script>
   <script>
   // FAQ accordion: רק שאלה אחת פתוחה במובייל
