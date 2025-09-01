@@ -141,20 +141,44 @@
 
 
  <script>
-  // Navbar hamburger toggle
+
+
+  document.addEventListener('DOMContentLoaded', () => {
   const hamburger = document.querySelector('.hamburger');
   const nav = document.getElementById('main-nav');
-  hamburger.addEventListener('click', function() {
-    nav.classList.toggle('open');
-    this.setAttribute('aria-expanded', nav.classList.contains('open'));
-  });
-  // Close nav on link click (mobile)
+
+  if (hamburger && nav) {
+    hamburger.addEventListener('click', function() {
+      nav.classList.toggle('open');
+      this.setAttribute('aria-expanded', nav.classList.contains('open'));
+    });
+  }
+
+  // סגירת תפריט במובייל בלחיצה על קישור
   document.querySelectorAll('.nav-link').forEach(link => {
     link.addEventListener('click', () => {
-      nav.classList.remove('open');
-      hamburger.setAttribute('aria-expanded', 'false');
+      if (nav) nav.classList.remove('open');
+      if (hamburger) hamburger.setAttribute('aria-expanded', 'false');
     });
   });
+});
+  
+  // Navbar hamburger toggle
+  // const hamburger = document.querySelector('.hamburger');
+  // const nav = document.getElementById('main-nav');
+  // hamburger.addEventListener('click', function() {
+  //   nav.classList.toggle('open');
+  //   this.setAttribute('aria-expanded', nav.classList.contains('open'));
+  // });
+  // // Close nav on link click (mobile)
+  // document.querySelectorAll('.nav-link').forEach(link => {
+  //   link.addEventListener('click', () => {
+  //     nav.classList.remove('open');
+  //     hamburger.setAttribute('aria-expanded', 'false');
+  //   });
+  // });
+
+  
   // Highlight active link on scroll
   const sections = ['hero','about','services','contact'];
   window.addEventListener('scroll', () => {
