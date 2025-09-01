@@ -173,7 +173,7 @@
   function isMobile() {
     return window.innerWidth <= 800;
   }
-  const faqItems = document.querySelectorAll('.faq-item');
+   faqItems = document.querySelectorAll('.faq-item');
   faqItems.forEach(item => {
     item.addEventListener('click', function(e) {
       if (isMobile()) {
