@@ -136,6 +136,18 @@
     </div>
     <p>© 2025 כל הזכויות שמורות | נבנה על ידי אביגדור כהן</p>
   </footer>
+ 
+ <script>
+document.addEventListener("DOMContentLoaded", () => {
+  const hamburger = document.querySelector(".hamburger");
+  if (hamburger) {
+    hamburger.addEventListener("click", () => {
+      document.getElementById("main-nav").classList.toggle("open");
+    });
+  }
+});
+</script>
+
 
   <script>
   // Navbar hamburger toggle
