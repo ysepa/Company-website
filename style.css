@@ -281,6 +281,7 @@ header p {
   to { opacity: 1; transform: none; }
 }
 .contact-form {
+   text-align:center;
   margin-top: 40px;
   background: var(--brand-gray);
   padding: 36px 24px;
