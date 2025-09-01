@@ -163,7 +163,12 @@
       const sec = document.getElementById(id);
       if (sec && sec.offsetTop <= scrollPos && sec.offsetTop + sec.offsetHeight > scrollPos) {
         document.querySelectorAll('.nav-link').forEach(a => a.classList.remove('active'));
-        document.querySelector('.nav-link[href="#'+id+'"]').classList.add('active');
+       const link = document.querySelector('.nav-link[href="#'+id+'"]');
+if (link) {
+  link.classList.add('active');
+}
+
+        // document.querySelector('.nav-link[href="#'+id+'"]').classList.add('active');
       }
     }
   });
