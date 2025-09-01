@@ -203,15 +203,31 @@ if (link) {
   function isMobile() {
     return window.innerWidth <= 800;
   }
+
+document.addEventListener('DOMContentLoaded', () => {
   const faqItems = document.querySelectorAll('.faq-item');
+
   faqItems.forEach(item => {
-    item.addEventListener('click', function(e) {
-      if (isMobile()) {
+    item.addEventListener('click', function() {
+      // אם רוצים רק שאלה אחת פתוחה במובייל:
+      if (window.innerWidth <= 800) {
         faqItems.forEach(i => { if (i !== this) i.classList.remove('open'); });
       }
       this.classList.toggle('open');
     });
   });
+});
+   
+   
+  // const faqItems = document.querySelectorAll('.faq-item');
+  // faqItems.forEach(item => {
+  //   item.addEventListener('click', function(e) {
+  //     if (isMobile()) {
+  //       faqItems.forEach(i => { if (i !== this) i.classList.remove('open'); });
+  //     }
+  //     this.classList.toggle('open');
+  //   });
+  // });
   </script>
   <!-- כפתור וואטסאפ צף במובייל -->
   <a href="https://wa.me/972523152941" class="floating-whatsapp" target="_blank" title="שלח הודעה בוואטסאפ" aria-label="וואטסאפ">
