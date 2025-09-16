@@ -120,12 +120,12 @@
 
     <div class="contact-form" id="contact">
       <h2>צור קשר</h2>
-     <form id="contactForm" novalidate>
-        <div class="form-status" id="formStatus"></div>
-        <input type="text" name="name" placeholder="שם מלא" required autocomplete="name">
-        <input type="email" name="email" placeholder="אימייל" required autocomplete="email">
-        <textarea rows="5" name="message" placeholder="ההודעה שלך..." required></textarea>
-        <button type="submit">שלח הודעה</button>
+    <form id="contact-form"> 
+     <input type="text" name="user_name" placeholder="השם שלך" required> 
+     <input type="number" name="user_pon" placeholder="הטלפון שלך" required> 
+     <input type="email" name="user_email" placeholder="האימייל שלך" required> 
+     <textarea name="message" placeholder="ההודעה שלך"></textarea> <button type="submit">שלח</button> 
+    </form>
 <!--     <form id="contact-form">
   <input type="text" name="user_name" placeholder="השם שלך" required>
   <input type="number" name="user_pon" placeholder="הטלפון שלך" required>
