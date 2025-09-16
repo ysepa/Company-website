@@ -289,6 +289,28 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   aboutAccordionInit();
   </script>
+
+ <!-- חתקנת סיפריה EmailJS --> 
+ <script type="text/javascript" 
+  src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js">
+  
+  </script> 
+ <script type="text/javascript"> (function(){
+ emailjs.init("2KH5eCMDnBfpCZq6Q"); // מכניס כאן את המפתח שלך 
+})(); 
+ </script>
+
+ <!-- שליחת הטופס של EmailJS --> 
+ <script> document.getElementById("contact-form").addEventListener("submit",
+ function(e) { e.preventDefault();
+              emailjs.sendForm("service_h151r4q", "template_dnz305h", this) 
+               .then(() => { 
+                alert("ההודעה נשלחה בהצלחה!"); 
+               }, (error) => {
+                alert("שגיאה בשליחה: " + JSON.stringify(error)); 
+               }); 
+             }); 
+ </script>
   <!-- כפתור וואטסאפ צף במובייל -->
 <a href="https://wa.me/972504657817" class="floating-whatsapp" target="_blank"
 title="שלח הודעה בוואטסאפ" aria-label="שלח הודעת וואטסאפ">
